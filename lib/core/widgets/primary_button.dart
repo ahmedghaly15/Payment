@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:payment/core/utils/app_styles.dart';
+import 'package:payment/core/utils/colors_manager.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
     super.key,
     required this.buttonText,
     required this.onPressed,
-    this.backgroundColor = const Color(0xff4EB7F2),
+    this.backgroundColor = ColorsManager.primaryColor,
     this.textColor = Colors.white,
   });
 
@@ -18,6 +19,7 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 73,
+      width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,
