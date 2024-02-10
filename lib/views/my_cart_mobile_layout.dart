@@ -9,7 +9,8 @@ class MyCartMobileLayout extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         SliverAppBar(
-          backgroundColor: Colors.white,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
           title: Text(
             'My Cart',
             style: AppStyles.styleMedium25(context),
