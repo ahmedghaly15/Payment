@@ -13,6 +13,11 @@ class PaymentApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: ColorsManager.primaryColor,
         scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          centerTitle: true,
+          backgroundColor: Colors.white,
+          elevation: 0,
+        ),
       ),
       home: const MyCartView(),
     );
