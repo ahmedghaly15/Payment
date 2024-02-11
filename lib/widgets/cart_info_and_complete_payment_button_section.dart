@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:payment/core/utils/app_styles.dart';
 import 'package:payment/core/widgets/custom_divider.dart';
 import 'package:payment/core/widgets/primary_button.dart';
+import 'package:payment/views/cart_details_layout_view.dart';
 import 'package:payment/widgets/product_info.dart';
 
 class CartInfoAndCompletePaymentButtonSection extends StatelessWidget {
@@ -33,7 +34,13 @@ class CartInfoAndCompletePaymentButtonSection extends StatelessWidget {
         const SizedBox(height: 16),
         PrimaryButton(
           buttonText: 'Complete Payment',
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const CartDetailsLayoutView(),
+              ),
+            );
+          },
         ),
       ],
     );

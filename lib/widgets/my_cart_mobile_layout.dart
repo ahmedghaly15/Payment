@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:payment/core/utils/app_styles.dart';
+import 'package:payment/core/widgets/custom_sliver_app_bar.dart';
 import 'package:payment/widgets/cart_image_section.dart';
 import 'package:payment/widgets/cart_info_and_complete_payment_button_section.dart';
 
@@ -8,18 +8,10 @@ class MyCartMobileLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
+    return const CustomScrollView(
       slivers: [
-        SliverAppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Text(
-            'My Cart',
-            style: AppStyles.styleMedium25(context),
-          ),
-          centerTitle: true,
-        ),
-        const SliverFillRemaining(
+        CustomSliverAppBar(title: 'My Cart'),
+        SliverFillRemaining(
           hasScrollBody: false,
           child: Column(
             children: <Widget>[
