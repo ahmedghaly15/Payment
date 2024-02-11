@@ -9,7 +9,10 @@ class ThankYouView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ResponsiveLayout(
-        mobileLayout: (context) => const ThankYouMobileLayout(),
+        mobileLayout: (context) => Transform.translate(
+          offset: const Offset(0, -16),
+          child: const ThankYouMobileLayout(),
+        ),
         tabletLayout: (context) => const SizedBox(),
         desktopLayout: (context) => const SizedBox(),
       ),

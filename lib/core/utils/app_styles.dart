@@ -12,6 +12,11 @@ class AppStyles {
         fontWeight: FontWeight.w500,
       );
 
+  static TextStyle styleMedium22(BuildContext context) => TextStyle(
+        fontSize: getResponsiveFontSize(context, fontSize: 22),
+        fontWeight: FontWeight.w500,
+      );
+
   static TextStyle styleRegular20(BuildContext context) => TextStyle(
         fontSize: getResponsiveFontSize(context, fontSize: 20),
         fontWeight: FontWeight.w400,
@@ -27,8 +32,8 @@ class AppStyles {
         fontWeight: FontWeight.w600,
       );
 
-  static TextStyle styleMedium22(BuildContext context) => TextStyle(
-        fontSize: getResponsiveFontSize(context, fontSize: 22),
-        fontWeight: FontWeight.w500,
+  static TextStyle styleRegular14(BuildContext context) => TextStyle(
+        fontSize: getResponsiveFontSize(context, fontSize: 14),
+        fontWeight: FontWeight.w400,
       );
 }

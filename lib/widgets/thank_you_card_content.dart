@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:payment/core/utils/app_styles.dart';
+import 'package:payment/core/widgets/custom_divider.dart';
+import 'package:payment/widgets/barcode_and_paid.dart';
+import 'package:payment/widgets/custom_master_card.dart';
 import 'package:payment/widgets/thank_you_info.dart';
+import 'package:payment/widgets/total_amount.dart';
 
 class ThankYouCardContent extends StatelessWidget {
   const ThankYouCardContent({super.key});
@@ -23,6 +27,12 @@ class ThankYouCardContent extends StatelessWidget {
           ),
           const SizedBox(height: 42),
           const ThankYouInfo(),
+          const CustomDivider(),
+          const TotalAmount(),
+          const SizedBox(height: 30),
+          const CustomMasterCard(),
+          const Spacer(),
+          const BarcodeAndPaid(),
         ],
       ),
     );
