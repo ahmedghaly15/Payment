@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payment/core/widgets/primary_button.dart';
+import 'package:payment/views/thank_you_view.dart';
 import 'package:payment/widgets/custom_credit_card.dart';
 import 'package:payment/widgets/payment_methods_sliver_list.dart';
 
@@ -66,8 +67,13 @@ class _CartDetailsDesktopLayoutState extends State<CartDetailsDesktopLayout> {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
     } else {
-      autovalidateMode = AutovalidateMode.always;
-      setState(() {});
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => const ThankYouView(),
+        ),
+      );
+      // autovalidateMode = AutovalidateMode.always;
+      // setState(() {});
     }
   }
 }
