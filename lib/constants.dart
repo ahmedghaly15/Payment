@@ -1,3 +1,4 @@
+import 'package:payment/core/utils/app_assets.dart';
 import 'package:payment/models/product_info_model.dart';
 
 class Constants {
@@ -16,5 +17,11 @@ class Constants {
       title: 'Shipping',
       amount: 8,
     ),
+  ];
+
+  static const List<String> paymentMethodsImages = <String>[
+    AppAssets.imagesCard,
+    AppAssets.imagesPaypal,
+    AppAssets.imagesMasterCard,
   ];
 }
