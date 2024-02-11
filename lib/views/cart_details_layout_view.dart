@@ -7,10 +7,12 @@ class CartDetailsLayoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveLayout(
-      mobileLayout: (context) => const CartDetailsMobileLayout(),
-      tabletLayout: (context) => const SizedBox(),
-      desktopLayout: (context) => const SizedBox(),
+    return Scaffold(
+      body: ResponsiveLayout(
+        mobileLayout: (context) => const CartDetailsMobileLayout(),
+        tabletLayout: (context) => const SizedBox(),
+        desktopLayout: (context) => const SizedBox(),
+      ),
     );
   }
 }

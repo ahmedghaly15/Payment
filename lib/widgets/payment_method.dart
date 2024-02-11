@@ -25,7 +25,7 @@ class PaymentMethod extends StatelessWidget {
           color: isActive
               ? ColorsManager.primaryColor
               : Colors.black.withOpacity(0.5),
-          width: 1.5,
+          width: isActive ? 3.5 : 1.5,
         ),
       ),
       child: Center(
