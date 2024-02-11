@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:payment/core/widgets/custom_divider.dart';
 import 'package:payment/core/widgets/primary_button.dart';
-import 'package:payment/views/cart_details_view.dart';
+import 'package:payment/widgets/payment_methods_bottom_sheet.dart';
 import 'package:payment/widgets/product_info.dart';
 import 'package:payment/widgets/total_amount.dart';
 
@@ -23,10 +23,9 @@ class CartInfoAndCompletePaymentButtonSection extends StatelessWidget {
         PrimaryButton(
           buttonText: 'Complete Payment',
           onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const CartDetailsView(),
-              ),
+            showModalBottomSheet(
+              context: context,
+              builder: (context) => const PaymentMethodsBottomSheet(),
             );
           },
         ),
