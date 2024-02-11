@@ -23,12 +23,13 @@ class MyCartMobileLayout extends StatelessWidget {
           hasScrollBody: false,
           child: Column(
             children: <Widget>[
-              CartImageSection(),
+              Expanded(child: CartImageSection()),
               Padding(
                 padding: EdgeInsets.only(
                   top: 25,
                   left: 20,
                   right: 20,
+                  bottom: 12,
                 ),
                 child: CartInfoAndCompletePaymentButtonSection(),
               ),
