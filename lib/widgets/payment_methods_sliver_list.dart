@@ -2,43 +2,50 @@ import 'package:flutter/material.dart';
 import 'package:payment/constants.dart';
 import 'package:payment/widgets/payment_method.dart';
 
-class PaymentMethodsSliverList extends StatefulWidget {
-  const PaymentMethodsSliverList({super.key});
+class PaymentMethodsListView extends StatefulWidget {
+  const PaymentMethodsListView({
+    super.key,
+    this.scrollDirection = Axis.horizontal,
+    this.hasHeight = true,
+  });
+
+  final Axis scrollDirection;
+  final bool hasHeight;
 
   @override
-  State<PaymentMethodsSliverList> createState() =>
-      _PaymentMethodsSliverListState();
+  State<PaymentMethodsListView> createState() => _PaymentMethodsListViewState();
 }
 
-class _PaymentMethodsSliverListState extends State<PaymentMethodsSliverList> {
+class _PaymentMethodsListViewState extends State<PaymentMethodsListView> {
   int activeIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: SizedBox(
-        height: Constants.paymentMethodHeight,
-        child: ListView.separated(
-          padding: EdgeInsets.zero,
-          itemCount: Constants.paymentMethodsImages.length,
-          physics: const BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) => GestureDetector(
-            onTap: () {
-              setState(() {
-                if (activeIndex != index) {
-                  setState(() {
-                    activeIndex = index;
-                  });
-                }
-              });
-            },
-            child: PaymentMethod(
-              image: Constants.paymentMethodsImages[index],
-              isActive: activeIndex == index,
-            ),
+    return SizedBox(
+      height: widget.hasHeight ? Constants.paymentMethodHeight : null,
+      child: ListView.separated(
+        padding: EdgeInsets.zero,
+        itemCount: Constants.paymentMethodsImages.length,
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: widget.scrollDirection,
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: () {
+            setState(() {
+              if (activeIndex != index) {
+                setState(() {
+                  activeIndex = index;
+                });
+              }
+            });
+          },
+          child: PaymentMethod(
+            image: Constants.paymentMethodsImages[index],
+            isActive: activeIndex == index,
           ),
-          separatorBuilder: (context, index) => const SizedBox(width: 20),
+        ),
+        separatorBuilder: (context, index) => SizedBox(
+          width: widget.scrollDirection == Axis.horizontal ? 20 : 0,
+          height: widget.scrollDirection == Axis.horizontal ? 0 : 20,
         ),
       ),
     );

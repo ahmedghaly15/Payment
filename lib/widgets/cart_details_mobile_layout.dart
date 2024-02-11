@@ -24,7 +24,12 @@ class _CartDetailsMobileLayoutState extends State<CartDetailsMobileLayout> {
         const SliverToBoxAdapter(child: SizedBox(height: 24)),
         const SliverPadding(
           padding: EdgeInsets.symmetric(horizontal: 20),
-          sliver: PaymentMethodsSliverList(),
+          sliver: SliverToBoxAdapter(
+            child: Align(
+              alignment: Alignment.center,
+              child: PaymentMethodsListView(),
+            ),
+          ),
         ),
         const SliverToBoxAdapter(child: SizedBox(height: 34)),
         SliverToBoxAdapter(
@@ -46,19 +51,21 @@ class _CartDetailsMobileLayoutState extends State<CartDetailsMobileLayout> {
               ),
               child: PrimaryButton(
                 buttonText: 'Pay',
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
-                  } else {
-                    autovalidateMode = AutovalidateMode.always;
-                    setState(() {});
-                  }
-                },
+                onPressed: () => _pay(),
               ),
             ),
           ),
         ),
       ],
     );
+  }
+
+  void _pay() {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+    } else {
+      autovalidateMode = AutovalidateMode.always;
+      setState(() {});
+    }
   }
 }
