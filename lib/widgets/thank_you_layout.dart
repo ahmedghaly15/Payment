@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:payment/widgets/custom_thank_you_card.dart';
 
-class ThankYouMobileLayout extends StatelessWidget {
-  const ThankYouMobileLayout({super.key});
+class ThankYouLayout extends StatelessWidget {
+  const ThankYouLayout({super.key});
 
   @override
   Widget build(BuildContext context) {

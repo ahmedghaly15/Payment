@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payment/core/widgets/responsive_layout.dart';
-import 'package:payment/widgets/thank_you_mobile_layout.dart';
+import 'package:payment/widgets/thank_you_layout.dart';
 
 class ThankYouView extends StatelessWidget {
   const ThankYouView({super.key});
@@ -11,10 +11,10 @@ class ThankYouView extends StatelessWidget {
       body: ResponsiveLayout(
         mobileLayout: (context) => Transform.translate(
           offset: const Offset(0, -16),
-          child: const ThankYouMobileLayout(),
+          child: const ThankYouLayout(),
         ),
-        tabletLayout: (context) => const SizedBox(),
-        desktopLayout: (context) => const SizedBox(),
+        tabletLayout: (context) => const ThankYouLayout(),
+        desktopLayout: (context) => const ThankYouLayout(),
       ),
     );
   }
