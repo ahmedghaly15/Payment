@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:payment/widgets/custom_dashed_line.dart';
+import 'package:payment/widgets/thank_you_card_content.dart';
 
-class CustomThankYouContainer extends StatelessWidget {
-  const CustomThankYouContainer({super.key});
+class CustomThankYouCard extends StatelessWidget {
+  const CustomThankYouCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +19,7 @@ class CustomThankYouContainer extends StatelessWidget {
               color: const Color(0xffEDEDED),
               borderRadius: BorderRadius.circular(20),
             ),
+            child: const ThankYouCardContent(),
           ),
           Positioned(
             // 20 because the default radius for CircleAvatar is 20, and we want to use the half of the CircleAvatar
@@ -59,20 +62,7 @@ class CustomThankYouContainer extends StatelessWidget {
             // added 20 because the radius of the white circle avatars is 20, so if it's just 8, the padding will not appear
             left: 20 + 8,
             right: 20 + 8,
-            child: Row(
-              children: List.generate(
-                30,
-                (index) => Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 2),
-                    child: Container(
-                      color: const Color(0xffB8B8B8),
-                      height: 2,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            child: const CustomDashedLine(),
           ),
         ],
       ),

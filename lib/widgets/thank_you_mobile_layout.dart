@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:payment/widgets/custom_thank_you_container.dart';
+import 'package:payment/widgets/custom_thank_you_card.dart';
 
 class ThankYouMobileLayout extends StatelessWidget {
   const ThankYouMobileLayout({super.key});
@@ -13,7 +13,7 @@ class ThankYouMobileLayout extends StatelessWidget {
           backgroundColor: Colors.transparent,
         ),
         SliverFillRemaining(
-          child: CustomThankYouContainer(),
+          child: CustomThankYouCard(),
         ),
       ],
     );
