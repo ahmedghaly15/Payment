@@ -15,6 +15,8 @@ class CustomThankYouCard extends StatelessWidget {
         clipBehavior: Clip.none,
         children: <Widget>[
           Container(
+            width: double.infinity,
+            padding: const EdgeInsets.only(left: 23, right: 23, bottom: 58),
             decoration: BoxDecoration(
               color: const Color(0xffEDEDED),
               borderRadius: BorderRadius.circular(20),

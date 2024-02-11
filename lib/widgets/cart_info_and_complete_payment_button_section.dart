@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:payment/core/utils/app_styles.dart';
 import 'package:payment/core/widgets/custom_divider.dart';
 import 'package:payment/core/widgets/primary_button.dart';
 import 'package:payment/views/cart_details_view.dart';
 import 'package:payment/widgets/product_info.dart';
+import 'package:payment/widgets/total_amount.dart';
 
 class CartInfoAndCompletePaymentButtonSection extends StatelessWidget {
   const CartInfoAndCompletePaymentButtonSection({super.key});
@@ -18,19 +18,7 @@ class CartInfoAndCompletePaymentButtonSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 15),
           child: CustomDivider(),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Text(
-              'Total',
-              style: AppStyles.styleSemiBold24(context),
-            ),
-            Text(
-              "\$50,97",
-              style: AppStyles.styleSemiBold24(context),
-            ),
-          ],
-        ),
+        const TotalAmount(),
         const SizedBox(height: 16),
         PrimaryButton(
           buttonText: 'Complete Payment',
