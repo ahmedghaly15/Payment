@@ -4,8 +4,8 @@ import 'package:payment/core/widgets/responsive_layout.dart';
 import 'package:payment/widgets/my_cart_large_layout.dart';
 import 'package:payment/widgets/my_cart_mobile_layout.dart';
 
-class MyCartLayoutView extends StatelessWidget {
-  const MyCartLayoutView({super.key});
+class MyCartView extends StatelessWidget {
+  const MyCartView({super.key});
 
   @override
   Widget build(BuildContext context) {

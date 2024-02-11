@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payment/core/utils/colors_manager.dart';
-import 'package:payment/views/my_cart_layout_view.dart';
+import 'package:payment/views/my_cart_view.dart';
 
 class PaymentApp extends StatelessWidget {
   const PaymentApp({super.key});
@@ -14,7 +14,7 @@ class PaymentApp extends StatelessWidget {
         primaryColor: ColorsManager.primaryColor,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: const MyCartLayoutView(),
+      home: const MyCartView(),
     );
   }
 }
