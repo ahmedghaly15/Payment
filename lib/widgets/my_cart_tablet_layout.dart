@@ -3,8 +3,8 @@ import 'package:payment/core/widgets/custom_sliver_app_bar.dart';
 import 'package:payment/widgets/cart_image_section.dart';
 import 'package:payment/widgets/cart_info_and_complete_payment_button_section.dart';
 
-class MyCartLargeLayout extends StatelessWidget {
-  const MyCartLargeLayout({super.key});
+class MyCartTabletLayout extends StatelessWidget {
+  const MyCartTabletLayout({super.key});
 
   @override
   Widget build(BuildContext context) {

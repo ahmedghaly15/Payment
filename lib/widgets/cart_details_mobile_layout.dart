@@ -25,10 +25,7 @@ class _CartDetailsMobileLayoutState extends State<CartDetailsMobileLayout> {
         const SliverPadding(
           padding: EdgeInsets.symmetric(horizontal: 20),
           sliver: SliverToBoxAdapter(
-            child: Align(
-              alignment: Alignment.center,
-              child: PaymentMethodsListView(),
-            ),
+            child: PaymentMethodsListView(),
           ),
         ),
         const SliverToBoxAdapter(child: SizedBox(height: 34)),
