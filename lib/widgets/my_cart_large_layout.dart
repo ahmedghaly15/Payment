@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:payment/widgets/cart_image_section.dart';
 import 'package:payment/widgets/cart_info_and_complete_payment_button_section.dart';
 
-class MyCartDesktopLayout extends StatelessWidget {
-  const MyCartDesktopLayout({super.key});
+class MyCartLargeLayout extends StatelessWidget {
+  const MyCartLargeLayout({super.key});
 
   @override
   Widget build(BuildContext context) {
