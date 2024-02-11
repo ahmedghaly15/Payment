@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:payment/core/widgets/responsive_layout.dart';
 import 'package:payment/widgets/my_cart_mobile_layout.dart';
-import 'package:payment/widgets/my_cart_tablet_layout.dart';
+import 'package:payment/widgets/my_cart_large_layout.dart';
 
 class MyCartLayoutView extends StatelessWidget {
   const MyCartLayoutView({super.key});
@@ -11,8 +11,8 @@ class MyCartLayoutView extends StatelessWidget {
     return Scaffold(
       body: ResponsiveLayout(
         mobileLayout: (context) => const MyCartMobileLayout(),
-        tabletLayout: (context) => const MyCartTabletLayout(),
-        desktopLayout: (context) => const SizedBox(),
+        tabletLayout: (context) => const MyCartLargeLayout(),
+        desktopLayout: (context) => const MyCartLargeLayout(),
       ),
     );
   }
