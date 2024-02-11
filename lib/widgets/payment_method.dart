@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:payment/constants.dart';
 import 'package:payment/core/utils/colors_manager.dart';
 
 class PaymentMethod extends StatelessWidget {
@@ -15,7 +16,7 @@ class PaymentMethod extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      height: 62,
+      height: Constants.paymentMethodHeight,
       duration: const Duration(milliseconds: 300),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(

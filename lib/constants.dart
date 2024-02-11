@@ -24,4 +24,6 @@ class Constants {
     AppAssets.imagesPaypal,
     AppAssets.imagesMasterCard,
   ];
+
+  static const double paymentMethodHeight = 62;
 }

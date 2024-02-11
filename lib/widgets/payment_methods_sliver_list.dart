@@ -17,8 +17,9 @@ class _PaymentMethodsSliverListState extends State<PaymentMethodsSliverList> {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: SizedBox(
-        height: 62,
+        height: Constants.paymentMethodHeight,
         child: ListView.separated(
+          padding: EdgeInsets.zero,
           itemCount: Constants.paymentMethodsImages.length,
           physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,

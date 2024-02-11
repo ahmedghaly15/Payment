@@ -15,6 +15,7 @@ class CartDetailsMobileLayout extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 20),
           sliver: PaymentMethodsSliverList(),
         ),
+        SliverToBoxAdapter(child: SizedBox(height: 34)),
       ],
     );
   }
