@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payment/core/widgets/custom_sliver_app_bar.dart';
+import 'package:payment/widgets/custom_credit_card.dart';
 import 'package:payment/widgets/payment_methods_sliver_list.dart';
 
 class CartDetailsMobileLayout extends StatelessWidget {
@@ -16,6 +17,9 @@ class CartDetailsMobileLayout extends StatelessWidget {
           sliver: PaymentMethodsSliverList(),
         ),
         SliverToBoxAdapter(child: SizedBox(height: 34)),
+        SliverToBoxAdapter(
+          child: CustomCreditCard(),
+        ),
       ],
     );
   }
