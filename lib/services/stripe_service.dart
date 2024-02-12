@@ -7,7 +7,7 @@ import 'package:payment/services/api_service.dart';
 class StripeService {
   final ApiService _apiService = ApiService();
 
-  Future<PaymentIntentResponse> createPaymentIntent(
+  Future<PaymentIntentResponse> _createPaymentIntent(
     PaymentIntentRequestBody paymentIntentRequestBody,
   ) async {
     var response = await _apiService.post(
@@ -21,7 +21,7 @@ class StripeService {
     return paymentIntent;
   }
 
-  Future<void> initPaymentSheet({
+  Future<void> _initPaymentSheet({
     required String paymentIntentClientSecret,
     String merchantDisplayName = 'Ahmed Ghaly',
   }) async {
@@ -33,7 +33,21 @@ class StripeService {
     );
   }
 
-  Future<void> displayPaymentSheet() async {
+  Future<void> _displayPaymentSheet() async {
     await Stripe.instance.presentPaymentSheet();
+  }
+
+  Future<void> pay(
+    PaymentIntentRequestBody paymentIntentRequestBody,
+  ) async {
+    var paymentIntent = await _createPaymentIntent(
+      paymentIntentRequestBody,
+    );
+
+    await _initPaymentSheet(
+      paymentIntentClientSecret: paymentIntent.clientSecret!,
+    );
+
+    await _displayPaymentSheet();
   }
 }
