@@ -1,3 +1,4 @@
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:payment/core/utils/api_keys.dart';
 import 'package:payment/models/payment_intent_request_body.dart';
 import 'package:payment/models/payment_intent_response/payment_intent_response.dart';
@@ -18,5 +19,17 @@ class StripeService {
     final paymentIntent = PaymentIntentResponse.fromJson(response.data);
 
     return paymentIntent;
+  }
+
+  Future<void> initPaymentSheet({
+    required String paymentIntentClientSecret,
+    String merchantDisplayName = 'Ahmed Ghaly',
+  }) async {
+    await Stripe.instance.initPaymentSheet(
+      paymentSheetParameters: SetupPaymentSheetParameters(
+        paymentIntentClientSecret: paymentIntentClientSecret,
+        merchantDisplayName: merchantDisplayName,
+      ),
+    );
   }
 }
