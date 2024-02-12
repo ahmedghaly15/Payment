@@ -49,3 +49,5 @@ windows
 linux
 macos 
 windows
+
+lib/core/utils/api_keys.dart
