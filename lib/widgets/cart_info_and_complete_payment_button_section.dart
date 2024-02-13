@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:payment/core/widgets/custom_divider.dart';
 import 'package:payment/core/widgets/primary_button.dart';
+import 'package:payment/cubit/payment_cubit.dart';
+import 'package:payment/repos/checkout_repo_impl.dart';
 import 'package:payment/widgets/payment_methods_bottom_sheet.dart';
 import 'package:payment/widgets/product_info.dart';
 import 'package:payment/widgets/total_amount.dart';
@@ -25,7 +28,10 @@ class CartInfoAndCompletePaymentButtonSection extends StatelessWidget {
           onPressed: () {
             showModalBottomSheet(
               context: context,
-              builder: (context) => const PaymentMethodsBottomSheet(),
+              builder: (context) => BlocProvider(
+                create: (context) => PaymentCubit(CheckoutRepoImpl()),
+                child: const PaymentMethodsBottomSheet(),
+              ),
             );
           },
         ),

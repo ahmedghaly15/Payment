@@ -9,11 +9,13 @@ class PrimaryButton extends StatelessWidget {
     required this.onPressed,
     this.backgroundColor = ColorsManager.primaryColor,
     this.textColor = Colors.white,
+    this.isLoading = false,
   });
 
   final String buttonText;
   final Color backgroundColor, textColor;
   final VoidCallback onPressed;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +31,17 @@ class PrimaryButton extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        child: Text(
-          buttonText,
-          style: AppStyles.styleMedium22(context).copyWith(
-            color: textColor,
-          ),
-        ),
+        child: isLoading
+            ? const CircularProgressIndicator(
+                color: Colors.white,
+                strokeWidth: 2,
+              )
+            : Text(
+                buttonText,
+                style: AppStyles.styleMedium22(context).copyWith(
+                  color: textColor,
+                ),
+              ),
       ),
     );
   }
