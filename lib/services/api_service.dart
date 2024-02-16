@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 class ApiService {
-  final Dio dio = Dio();
+  final Dio _dio = Dio();
 
   Future<Response> post({
     required body,
@@ -10,7 +10,7 @@ class ApiService {
     Map<String, String>? headers,
     String contentType = Headers.formUrlEncodedContentType,
   }) async {
-    var response = await dio.post(
+    var response = await _dio.post(
       url,
       data: body,
       options: Options(

@@ -13,6 +13,8 @@ class CustomPrimaryButtonBlocConsumer extends StatelessWidget {
     return BlocConsumer<PaymentCubit, PaymentState>(
       listener: (context, state) {
         if (state is PaymentSuccess) {
+          Navigator.pop(context);
+
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
@@ -22,8 +24,9 @@ class CustomPrimaryButtonBlocConsumer extends StatelessWidget {
         }
 
         if (state is PaymentFailure) {
-          SnackBar snackBar = SnackBar(content: Text(state.failure));
+          Navigator.pop(context);
 
+          SnackBar snackBar = SnackBar(content: Text(state.failure.toString()));
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
         }
       },
