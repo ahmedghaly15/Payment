@@ -3,6 +3,7 @@ import 'package:payment/core/utils/api_keys.dart';
 import 'package:payment/models/ephemeral_key_response_body/ephemeral_key_response_body.dart';
 import 'package:payment/models/payment_intent_request_body.dart';
 import 'package:payment/models/payment_intent_response/payment_intent_response.dart';
+import 'package:payment/models/payment_sheet_params.dart';
 import 'package:payment/services/api_service.dart';
 
 class StripeService {
@@ -22,12 +23,15 @@ class StripeService {
   }
 
   Future<void> _initPaymentSheet({
-    required String paymentIntentClientSecret,
+    required PaymentSheetParams paymentSheetParams,
     String merchantDisplayName = 'Ahmed Ghaly',
   }) async {
     await Stripe.instance.initPaymentSheet(
       paymentSheetParameters: SetupPaymentSheetParameters(
-        paymentIntentClientSecret: paymentIntentClientSecret,
+        paymentIntentClientSecret: paymentSheetParams.paymentIntentClientSecret,
+        customerEphemeralKeySecret:
+            paymentSheetParams.customerEphemeralKeySecret,
+        customerId: paymentSheetParams.customerId,
         merchantDisplayName: merchantDisplayName,
       ),
     );
@@ -44,21 +48,29 @@ class StripeService {
       paymentIntentRequestBody,
     );
 
+    var ephemeralKey = await _createEphemeralKey(
+      customerId: paymentIntentRequestBody.customerId,
+    );
+
     await _initPaymentSheet(
-      paymentIntentClientSecret: paymentIntent.clientSecret!,
+      paymentSheetParams: PaymentSheetParams(
+        paymentIntentClientSecret: paymentIntent.clientSecret!,
+        customerId: paymentIntentRequestBody.customerId,
+        customerEphemeralKeySecret: ephemeralKey.secret,
+      ),
     );
 
     await _displayPaymentSheet();
   }
 
-  Future<EphemeralKeyResponseBody> createEphemeralKey({
+  Future<EphemeralKeyResponseBody> _createEphemeralKey({
     required String customerId,
   }) async {
     var response = await _apiService.post(
       body: {
         'customer': customerId,
       },
-      url: 'https://api.stripe.com/v1/payment_intents',
+      url: 'https://api.stripe.com/v1/ephemeral_keys',
       headers: {
         'Authorization': "Bearer ${ApiKeys.secretKey}",
         'Stripe-Version': '2023-08-16',
