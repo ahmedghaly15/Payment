@@ -15,7 +15,7 @@ class CustomPrimaryButtonBlocConsumer extends StatelessWidget {
         if (state is PaymentSuccess) {
           Navigator.pop(context);
 
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => const ThankYouView(),
@@ -39,6 +39,7 @@ class CustomPrimaryButtonBlocConsumer extends StatelessWidget {
                 PaymentIntentRequestBody(
               amount: '1000',
               currency: 'USD',
+              customerId: 'cus_PaGfO7aAybUyWS',
             );
 
             context.read<PaymentCubit>().pay(paymentIntentRequestBody);

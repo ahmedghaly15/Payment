@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:payment/core/utils/api_keys.dart';
 
 class ApiService {
   final Dio _dio = Dio();
@@ -6,7 +7,7 @@ class ApiService {
   Future<Response> post({
     required body,
     required String url,
-    required String token,
+    String token = ApiKeys.secretKey,
     Map<String, String>? headers,
     String contentType = Headers.formUrlEncodedContentType,
   }) async {
